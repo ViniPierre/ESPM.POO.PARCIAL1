@@ -1,8 +1,8 @@
 # ESPM.POO.PARCIAL1
-Prova parcial programação orientada a objetos
+Prova parcial programação orientada a objetos\n
 
------------------------
-Rodrigo Cortesa
-Mariana Rubim
-Vinicius Pierre
+-----------------------\n
+Rodrigo Cortesa\n
+Mariana Rubim\n
+Vinicius Pierre\n
 -----------------------
