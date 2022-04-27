@@ -32,8 +32,8 @@ public class Processo {
         }
 
         while(!aux.equals("s") && !aux.equals("n")){
-            aux = JOptionPane.showInputDialog("O pagamento será à vista? [S/N]: ").toLowerCase();
-            if(!aux.equals("s") && !aux.equals("n")){
+            aux = JOptionPane.showInputDialog("Qual será a forma de pagamento? \nDigite 1 se for à vista. \nDigite 2 se for parcelado.").toLowerCase();
+            if(!aux.equals("1") && !aux.equals("2")){
                 JOptionPane.showMessageDialog(null, "ERRO!! Informe um valor válido\nS: Pagamento à vista | N: Pagamento parcelado");
             }
         }
@@ -54,5 +54,20 @@ public class Processo {
         } else{
             JOptionPane.showMessageDialog(null, "Reserva efetuada com sucesso");
         }
+    }
+
+    private static TipoPessoa inputTipoCliente(){
+
+        String tp=" ";
+
+        while(!tp.equals("f")&& !tp.equals("j")){  
+            tp = JOptionPane.showInputDialog("Qual o tipo de cliente? \nDigite 1 se for pessoa física. \nDigite 2 se for pessoa jurídica.").toLowerCase();
+            if(!tp.equals("físico")&& !tp.equals("jurídico")){
+
+            }
+
+        }
+
+
     }
 }
