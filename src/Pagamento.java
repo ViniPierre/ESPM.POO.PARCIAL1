@@ -1,4 +1,6 @@
 package src;
-public class Pagamento {
+public interface Pagamento {
     
+    public double calcularPagamento();
+
 }
