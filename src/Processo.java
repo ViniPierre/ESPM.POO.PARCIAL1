@@ -62,12 +62,12 @@ public class Processo {
 
         while(!tp.equals("f")&& !tp.equals("j")){  
             tp = JOptionPane.showInputDialog("Qual o tipo de cliente? \nDigite 1 se for pessoa física. \nDigite 2 se for pessoa jurídica.").toLowerCase();
-            if(!tp.equals("físico")&& !tp.equals("jurídico")){
-
+            if(!tp.equals("1")&& !tp.equals("2")){
+                JOptionPane.showMessageDialog(null, "Digite uma opção válida: 1(Pessoa Física) ou 2(Pessoa Jurídica)");
             }
-
         }
-
-
+        return tp.equals("f") ? TipoPessoa.Fisica : TipoPessoa.Juridica;
     }
+
+
 }
