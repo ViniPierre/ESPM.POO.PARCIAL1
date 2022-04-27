@@ -3,6 +3,6 @@ Prova parcial programação orientada a objetos
 
 -----------------------
 Rodrigo Cortese,
-Mariana Rubim,
+Mariana Camargo Rubim,
 Vinicius Pierre
 -----------------------
