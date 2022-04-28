@@ -79,8 +79,30 @@ public class Processo {
             } else {
                 JOptionPane.showMessageDialog(null, "Você não possui reserva cadastrada");
             }
+        }
     }
 
+    public static int buscarReservas(String aux){
+        
+        if(reservas.size() > 0){
+            for(int i = 0; i < reservas.size(); i++){
+                if(reservas.get(i).getCliente() instanceof PessoaFisica){
+                    Cliente c = reservas.get(i).getCliente();
+                    PessoaFisica pf = (PessoaFisica) (c);
+                    if(pf.getCpf().equals(aux)){
+                        return i;
+                    }
+                }
+                if(reservas.get(i).getCliente() instanceof PessoaJuridica){
+                    Cliente c = reservas.get(i).getCliente();
+                    PessoaJuridica pj = (PessoaJuridica) (c);
+                    if(pj.getCnpj().equals(aux)){
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
+    } 
 
-}
 }
