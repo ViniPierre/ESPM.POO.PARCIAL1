@@ -69,5 +69,18 @@ public class Processo {
         return tp.equals("f") ? TipoPessoa.Fisica : TipoPessoa.Juridica;
     }
 
+    public static void pesquisarReserva(){
+        if(reservas.size() > 0){
+            String aux = JOptionPane.showInputDialog(null, "Digite o seu CPF ou seu CNPJ");
+            int nreserva = buscarReservas(aux);
 
+            if(nreserva >= 0){
+                JOptionPane.showMessageDialog(null, "Sua reserva está cadastrada");
+            } else {
+                JOptionPane.showMessageDialog(null, "Você não possui reserva cadastrada");
+            }
+    }
+
+
+}
 }
