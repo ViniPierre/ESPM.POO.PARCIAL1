@@ -14,7 +14,7 @@ public class Processo {
         String aux = "";
         TipoPessoa tipoPessoa = inputTipoCliente();
 
-        String nome = JOptionPane.showInputDiaLog("Nome: ");
+        String nome = JOptionPane.showInputDialog("Nome: ");
 
         Cliente c = null;
 
@@ -31,10 +31,10 @@ public class Processo {
                 break;
         }
 
-        while(!aux.equals("s") && !aux.equals("n")){
+        while(!aux.equals("1") && !aux.equals("2")){
             aux = JOptionPane.showInputDialog("Qual será a forma de pagamento? \nDigite 1 se for à vista. \nDigite 2 se for parcelado.").toLowerCase();
             if(!aux.equals("1") && !aux.equals("2")){
-                JOptionPane.showMessageDialog(null, "ERRO!! Informe um valor válido\nS: Pagamento à vista | N: Pagamento parcelado");
+                JOptionPane.showMessageDialog(null, " Informe um valor válido\nS: Pagamento à vista | N: Pagamento parcelado");
             }
         }
 
@@ -60,13 +60,13 @@ public class Processo {
 
         String tp=" ";
 
-        while(!tp.equals("f")&& !tp.equals("j")){  
+        while(!tp.equals("1")&& !tp.equals("2")){  
             tp = JOptionPane.showInputDialog("Qual o tipo de cliente? \nDigite 1 se for pessoa física. \nDigite 2 se for pessoa jurídica.").toLowerCase();
             if(!tp.equals("1")&& !tp.equals("2")){
                 JOptionPane.showMessageDialog(null, "Digite uma opção válida: 1(Pessoa Física) ou 2(Pessoa Jurídica)");
             }
         }
-        return tp.equals("f") ? TipoPessoa.Fisica : TipoPessoa.Juridica;
+        return tp.equals("1") ? TipoPessoa.Fisica : TipoPessoa.Juridica;
     }
 
     public static void pesquisarReserva(){
@@ -103,6 +103,53 @@ public class Processo {
             }
         }
         return -1;
-    } 
+    }
+    
+    public static void imprimirListaDeEspera() {
+        if(reservas.size() > 6) {
+            for(int i = 0; i < reservas.size(); i++) {
+                if(i >= 6){
+                    JOptionPane.showMessageDialog(null, "A sua posição na lista de espera é --> " + (i-5) + "\n" + reservas.get(i));
+                }    
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Ainda não existe lista de espera, reservas disponíveis!!");
+            
+        }
+    }
+    
+    public static void cancelarReserva(){
+        if(reservas.size() > 0) {
+            String aux = JOptionPane.showInputDialog(null, "Digite o seu CPF/CNPJ ");
+            int nreservas = buscarReservas(aux);
+
+            if(nreservas >= 0){
+                reservas.remove(nreservas);
+                JOptionPane.showMessageDialog(null, "Sua reserva foi removida!");
+            } else {
+                JOptionPane.showMessageDialog(null, "CPF/CNPJ não encontrado");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Sem reservas cadastradas");
+        }
+    }
+
+    public static void imprimirReserva() {
+        if(reservas.size() > 0) {
+            for(int i = 0; i < reservas.size(); i++) {
+                if(i < 6){
+                    JOptionPane.showMessageDialog(null, reservas.get(i));
+                } else {
+                    return;
+                }   
+            }
+
+        }else {
+            JOptionPane.showMessageDialog(null, "Não existem reservas");
+        }
+    }
+    
 
 }

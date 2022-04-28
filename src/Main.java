@@ -12,19 +12,19 @@ public class Main {
             } else{
                 switch(opcao){
                     case 1: 
-                        Processo.FazerReserva();
+                        Processo.reservarMesa();
                         break;
                     case 2:
-                        Processo.PesquisarReserva();
+                        Processo.pesquisarReserva();
                         break;
                     case 3:
-                        Processo.ImprimirReservas();
+                        Processo.imprimirReserva();
                         break;
                     case 4:
-                        Processo.ImprimirListaDeEspera();
+                        Processo.imprimirListaDeEspera();
                         break;
                     case 5:
-                        Processo.CancelarReserva();
+                        Processo.cancelarReserva();
                         break;
 
                 }

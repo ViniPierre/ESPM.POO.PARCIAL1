@@ -46,6 +46,23 @@ public class Reserva implements Pagamento {
                     } 
                     return valor;
                 }
+
+            public Cliente getCliente() {
+                return cliente;
+            }
+
+            public void setCliente(Cliente cliente) {
+                this.cliente = cliente;
+
+            }
+
+            public boolean getpagamentoAVista(){
+                return this.pagamentoAVista;
+            }
+
+            public void setPagamentoAVista(boolean pagamentoAVista) {
+                this.pagamentoAVista = pagamentoAVista;
+            }
         }
     
 
