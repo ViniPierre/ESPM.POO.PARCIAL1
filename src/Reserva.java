@@ -14,9 +14,9 @@ public class Reserva implements Pagamento {
     @Override
 
         public String toString() {
-            String tipoCliente = "Qual o tipo do Cliente: ";
-            String tipoPagamento = "Qual o tipo de Pagamento: ";
-            String nomeCliente = "Qual o nome do Cliente: " + this.cliente.getNome();
+            String tipoCliente = "Tipo do Cliente: ";
+            String tipoPagamento = "Tipo de Pagamento: ";
+            String nomeCliente = "Cliente: " + this.cliente.getNome();
 
             if(this.cliente instanceof PessoaFisica) {
                 PessoaFisica pessoafisica = (PessoaFisica) this.cliente;
@@ -33,7 +33,7 @@ public class Reserva implements Pagamento {
 
             }
 
-            return tipoCliente + ", " + nomeCliente + ", " + tipoPagamento;
+            return tipoCliente + "\n" + nomeCliente + "\n" + tipoPagamento;
         }
 
         @Override

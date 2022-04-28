@@ -34,11 +34,11 @@ public class Processo {
         while(!aux.equals("1") && !aux.equals("2")){
             aux = JOptionPane.showInputDialog("Qual será a forma de pagamento? \nDigite 1 se for à vista. \nDigite 2 se for parcelado.").toLowerCase();
             if(!aux.equals("1") && !aux.equals("2")){
-                JOptionPane.showMessageDialog(null, " Informe um valor válido\nS: Pagamento à vista | N: Pagamento parcelado");
+                JOptionPane.showMessageDialog(null, " Informe um valor válido: \n1. Pagamento à vista \n 2. Pagamento parcelado");
             }
         }
 
-        if("s".equals(aux)){
+        if("1".equals(aux)){
             tipo = true;
         } else {
             tipo = false;        
@@ -50,9 +50,9 @@ public class Processo {
         reservas.add(reserva);
             
         if(reservas.size() > 6){
-            JOptionPane.showMessageDialog(null, "Reservas esgotadas :( \nVocê está na lista de espera");
+            JOptionPane.showMessageDialog(null, "O número máximo de reservas foi atingido, mas não se abale, você está na lista de espera!");
         } else{
-            JOptionPane.showMessageDialog(null, "Reserva efetuada com sucesso");
+            JOptionPane.showMessageDialog(null, "Sua reserva foi resgistrada e está confirmada!");
         }
     }
 
@@ -79,6 +79,8 @@ public class Processo {
             } else {
                 JOptionPane.showMessageDialog(null, "Você não possui reserva cadastrada");
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ainda não existem reservas");
         }
     }
 
@@ -106,33 +108,33 @@ public class Processo {
     }
     
     public static void imprimirListaDeEspera() {
-        if(reservas.size() > 6) {
+        if(reservas.size() > 7) {
             for(int i = 0; i < reservas.size(); i++) {
-                if(i >= 6){
-                    JOptionPane.showMessageDialog(null, "A sua posição na lista de espera é --> " + (i-5) + "\n" + reservas.get(i));
+                if(i >= 7){
+                    JOptionPane.showMessageDialog(null, "Tem apenas " + (i-1) + " mesas antes de você" + "\n" + reservas.get(i));
                 }    
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Ainda não existe lista de espera, reservas disponíveis!!");
+            JOptionPane.showMessageDialog(null, "Não possui lista de espera, ainda é possível realizar reservas");
             
         }
     }
     
     public static void cancelarReserva(){
         if(reservas.size() > 0) {
-            String aux = JOptionPane.showInputDialog(null, "Digite o seu CPF/CNPJ ");
+            String aux = JOptionPane.showInputDialog(null, "Digite o seu CPF ou o seu CNPJ");
             int nreservas = buscarReservas(aux);
 
             if(nreservas >= 0){
                 reservas.remove(nreservas);
-                JOptionPane.showMessageDialog(null, "Sua reserva foi removida!");
+                JOptionPane.showMessageDialog(null, "Sua reserva foi cancelada");
             } else {
-                JOptionPane.showMessageDialog(null, "CPF/CNPJ não encontrado");
+                JOptionPane.showMessageDialog(null, "Seu CPF/CNPJ ainda não foi cadastrado");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Sem reservas cadastradas");
+            JOptionPane.showMessageDialog(null, "O sistema ainda não possui nenhuma reserva");
         }
     }
 
@@ -147,7 +149,7 @@ public class Processo {
             }
 
         }else {
-            JOptionPane.showMessageDialog(null, "Não existem reservas");
+            JOptionPane.showMessageDialog(null, "O sistema ainda não possui nenhuma reserva");
         }
     }
     
